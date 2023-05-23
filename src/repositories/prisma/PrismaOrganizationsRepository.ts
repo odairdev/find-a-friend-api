@@ -11,6 +11,17 @@ export class PrismaOrganizationsRepository implements IOrganizationsRepository {
     return organization
   }
 
+  async update(data: Organization): Promise<Organization> {
+    const updatedOrg = await prisma.organization.update({
+      where: {
+        id: data.id
+      },
+      data
+    })
+
+    return updatedOrg
+  }
+
   async findByEmail(email: string): Promise<Organization | null> {
     const organization = await prisma.organization.findUnique({
       where: {
@@ -18,6 +29,15 @@ export class PrismaOrganizationsRepository implements IOrganizationsRepository {
       }
     })
 
+    return organization
+  }
+
+  async findById(id: string): Promise<Organization | null> {
+    const organization = await prisma.organization.findUnique({
+      where: {
+        id
+      }
+    })
     return organization
   }
 }
