@@ -8,11 +8,11 @@ interface CreateOrganizationRequest {
   name: string;
   owner: string;
   email: string;
-  cep: number;
+  cep: string;
   city: string;
   neighborhood: string;
   address: string;
-  whatsapp: number;
+  whatsapp: string;
   password: string;
 }
 
@@ -35,8 +35,6 @@ export class CreateOrganizationUseCase {
       throw new AddressRequiredError();
     }
 
-    const password_hash = await hash(password, 6);
-
     const emailAlreadyInUse = await this.organizationsRepository.findByEmail(
       email
     );
@@ -44,6 +42,8 @@ export class CreateOrganizationUseCase {
     if (emailAlreadyInUse) {
       throw new EmailAlreadyExistsError();
     }
+
+    const password_hash = await hash(password, 6);
 
     const organization = await this.organizationsRepository.create({
       id,

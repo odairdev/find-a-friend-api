@@ -17,11 +17,11 @@ describe("Create Organization Use Case", () => {
       name: "Pet Org",
       owner: "John Doe",
       email: "johndoe@email.com",
-      cep: 99999999,
+      cep: "99999999",
       city: "Sao Paulo",
       neighborhood: "Downtown",
       address: "Any Street",
-      whatsapp: 99999999999,
+      whatsapp: "99999999999",
       password: "123456",
     });
 

@@ -15,11 +15,11 @@ model Organization {
   name          String
   owner         String
   email         String @unique
-  cep           Int
+  cep           String
   city          String
   neighborhood  String
   address       String
-  whatsapp      Int
+  whatsapp      String
   password_hash String
 
   pets Pet[]
