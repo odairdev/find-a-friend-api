@@ -22,7 +22,7 @@ export class InMemoryOrganizationsRepository
   async update(data: Organization): Promise<Organization> {
     const orgIndex = this.db.findIndex((org) => org.id === data.id);
 
-    if (orgIndex > 0) {
+    if (orgIndex >= 0) {
       this.db[orgIndex] = {
         id: data.id,
         name: data.name,
