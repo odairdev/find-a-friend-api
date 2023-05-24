@@ -29,11 +29,25 @@ model Organization {
   @@map("organizations")
 }
 
+enum Size {
+  SMALL
+  MEDIUM
+  BIG
+}
+
+enum Energy {
+  Low
+  Normal
+  High
+}
+
 model Pet {
   id                 String   @id @default(uuid())
   name               String
   about              String?
   age                Int
+  size               Size
+  energy             Energy
   independence_level Int
   environment        String
   requirements       String[]

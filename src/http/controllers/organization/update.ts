@@ -1,7 +1,4 @@
-import { AddressRequiredError } from "@/useCases/errors/AddressRequiredError";
-import { EmailAlreadyExistsError } from "@/useCases/errors/EmailAlreadyExistsError";
 import { ResourceNotFoundError } from "@/useCases/errors/ResourceNotFound";
-import { makeCreateOrganizationUseCase } from "@/useCases/factories/makeCreateOrganizationUseCase";
 import { makeUpdateOrganizationUseCase } from "@/useCases/factories/makeUpdateOrganizationUseCase";
 import { FastifyReply, FastifyRequest } from "fastify";
 import { z } from "zod";
