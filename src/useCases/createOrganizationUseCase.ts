@@ -58,6 +58,9 @@ export class CreateOrganizationUseCase {
       password_hash,
     });
 
+    // @ts-ignore
+    delete organization.password_hash
+
     return organization;
   }
 }

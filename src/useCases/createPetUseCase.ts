@@ -20,6 +20,7 @@ export class CreatePetUseCase {
     environment,
     requirements,
     organization_id,
+    organization_city
   }: PetRequestInterface) {
     const organization = await this.organizationsRepository.findById(
       organization_id
@@ -40,6 +41,7 @@ export class CreatePetUseCase {
       environment,
       requirements,
       organization_id,
+      organization_city
     });
 
     return pet;

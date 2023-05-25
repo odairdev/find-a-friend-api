@@ -38,7 +38,8 @@ export async function create(request: FastifyRequest, reply: FastifyReply) {
       independence_level,
       environment,
       requirements,
-      organization_id: request.user.sub
+      organization_id: request.user.sub,
+      organization_city: request.user.city
     })
 
     return reply.status(201).send({pet})

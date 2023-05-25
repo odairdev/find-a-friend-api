@@ -19,7 +19,9 @@ export async function authenticate(
     const { organization } = await authenticateUseCase.execute(email, password);
 
     const token = await reply.jwtSign(
-      {},
+      {
+        city: organization.city
+      },
       {
         sign: {
           sub: organization.id,
@@ -28,7 +30,9 @@ export async function authenticate(
     );
 
     const refreshToken = await reply.jwtSign(
-      {},
+      {
+        city: organization.city
+      },
       {
         sign: {
           sub: organization.id,

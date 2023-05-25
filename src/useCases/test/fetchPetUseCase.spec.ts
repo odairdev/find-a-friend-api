@@ -11,7 +11,7 @@ let petsRepository: InMemoryPetsRepository;
 let testOrganization: Organization;
 let sut: FetchPetUseCase;
 
-describe("Create Pet Use Case", () => {
+describe("Fetch Pet Use Case", () => {
   beforeEach(async () => {
     organizationsRepository = new InMemoryOrganizationsRepository();
     petsRepository = new InMemoryPetsRepository();
@@ -41,6 +41,7 @@ describe("Create Pet Use Case", () => {
       environment: "Ambiente Pequeno",
       requirements: ["Problema respiratorio"],
       organization_id: testOrganization.id,
+      organization_city: testOrganization.city
     });
   });
 

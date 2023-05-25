@@ -1,5 +1,7 @@
 import { Organization, Prisma } from "@prisma/client";
-import { IOrganizationsRepository } from "../IOrganizationsRepository";
+import {
+  IOrganizationsRepository,
+} from "../IOrganizationsRepository";
 import { randomUUID } from "crypto";
 
 export class InMemoryOrganizationsRepository
@@ -34,11 +36,11 @@ export class InMemoryOrganizationsRepository
         address: data.address,
         whatsapp: data.whatsapp,
         password_hash: data.password_hash,
-        created_at: data.created_at
+        created_at: data.created_at,
       };
     }
 
-    return this.db[orgIndex]
+    return this.db[orgIndex];
   }
 
   async findByEmail(email: string): Promise<Organization | null> {

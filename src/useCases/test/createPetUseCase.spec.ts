@@ -43,6 +43,7 @@ describe("Create Pet Use Case", () => {
       environment: "Ambiente Pequeno",
       requirements: ["Problema respiratorio"],
       organization_id: testOrganization.id,
+      organization_city: testOrganization.city,
     });
 
     expect(pet.id).toEqual("pet-01");
@@ -61,6 +62,7 @@ describe("Create Pet Use Case", () => {
         environment: "Ambiente Pequeno",
         requirements: ["Problema respiratorio"],
         organization_id: "wrong",
+        organization_city: testOrganization.city,
       });
     }).rejects.toBeInstanceOf(ResourceNotFoundError);
   });

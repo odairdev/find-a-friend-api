@@ -26,6 +26,7 @@ model Organization {
 
   created_at DateTime @default(now())
 
+  @@unique([id, city])
   @@map("organizations")
 }
 
@@ -52,8 +53,9 @@ model Pet {
   environment        String
   requirements       String[]
 
-  organization    Organization @relation(fields: [organization_id], references: [id])
-  organization_id String
+  organization      Organization @relation(fields: [organization_id, organization_city], references: [id, city])
+  organization_id   String
+  organization_city String
 
   created_at DateTime @default(now())
 
