@@ -1,4 +1,4 @@
-import { Energy, Pet, Size } from "@prisma/client";
+import { Energy, Pet, Prisma, Size } from "@prisma/client";
 import { IPetsRepository } from "../IPetsRepository";
 import { randomUUID } from "crypto";
 
@@ -79,5 +79,23 @@ export class InMemoryPetsRepository implements IPetsRepository {
     }
 
     return cityFilteredPets;
+  }
+
+  async update(pet: Pet): Promise<Pet> {
+    const petIndex = this.db.findIndex(p => p.id === pet.id)
+
+    if(petIndex >= 0) {
+      this.db[petIndex] = {
+        ...pet
+      }
+    }
+
+    return this.db[petIndex]
+  }
+
+  async deletePet(petId: string): Promise<void> {
+    const petIndex = this.db.findIndex(pet => pet.id === petId)
+
+    this.db.splice(petIndex, 1)
   }
 }

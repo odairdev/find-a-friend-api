@@ -1,4 +1,4 @@
-import { Energy, Pet, Size } from "@prisma/client";
+import { Energy, Pet, Prisma, Size } from "@prisma/client";
 import { PetRequestInterface } from "./inMemory/InMemoryPetsRepository";
 
 export interface IPetsRepository {
@@ -11,4 +11,6 @@ export interface IPetsRepository {
     size?: Size,
     independence_level?: number
   ): Promise<Pet[]>;
+  update(pet: Pet): Promise<Pet>
+  deletePet(petId: string): Promise<void>
 }

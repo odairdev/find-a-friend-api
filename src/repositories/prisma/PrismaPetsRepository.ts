@@ -41,4 +41,23 @@ export class PrismaPetsRepository implements IPetsRepository {
 
     return pets
   }
+
+  async update(pet: Pet): Promise<Pet> {
+    const updatedPet = await prisma.pet.update({
+      where: {
+        id: pet.id
+      },
+      data: pet
+    })
+
+    return updatedPet
+  }
+
+  async deletePet(petId: string): Promise<void> {
+    await prisma.pet.delete({
+      where: {
+        id: petId
+      }
+    })
+  }
 }
